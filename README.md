@@ -80,11 +80,24 @@ cp .env.example .env
 ```
 
 ```env
+# 원하는 키워드를 콤마로 구분해서 입력
+KEYWORDS=Python,백엔드,Django,AWS
+
+# 제외할 키워드
+EXCLUDE_KEYWORDS=경력 10년,수석,팀장
+
+# 지역 설정
+LOCATION_LABEL=수도권
+SARAMIN_LOC_CD=R1,R2,R6
+
+# Gmail 설정
 SARAMIN_API_KEY=사람인_API_키
 GMAIL_USER=발신_Gmail_주소
 GMAIL_APP_PASSWORD=Gmail_앱_비밀번호_16자리
 RECIPIENT_EMAIL=수신_Gmail_주소
 ```
+
+> 키워드만 바꾸면 누구든 자신의 직군에 맞게 사용 가능합니다.
 
 ### 3. 로컬 실행
 
