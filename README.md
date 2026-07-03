@@ -51,7 +51,8 @@ job-scraper/
 ├── core/
 │   ├── filter.py       # 키워드 필터링 + 중복 제거
 │   └── mailer.py       # Gmail SMTP 발송
-├── config.py           # 키워드 · 지역 · 설정
+├── config.py           # 환경변수 로딩 설정 (키워드는 .env에서 관리)
+├── .env.example        # 설정 템플릿 (이걸 복사해서 .env 작성)
 ├── main.py             # 실행 진입점
 ├── seen_jobs.json      # 발송 완료 공고 ID 저장
 └── .github/
@@ -115,10 +116,13 @@ python3 main.py --test
 
 `.github/workflows/daily.yml`이 **매일 KST 09:00**에 자동 실행됩니다.
 
-GitHub 레포 → **Settings → Secrets and variables → Actions** 에서 아래 4개 등록:
+GitHub 레포 → **Settings → Secrets and variables → Actions** 에서 아래 항목 등록:
 
 | Secret 이름 | 내용 |
 |-------------|------|
+| `KEYWORDS` | 검색 키워드 (콤마 구분) |
+| `EXCLUDE_KEYWORDS` | 제외 키워드 (콤마 구분) |
+| `SARAMIN_LOC_CD` | 사람인 지역 코드 |
 | `SARAMIN_API_KEY` | 사람인 API 키 |
 | `GMAIL_USER` | 발신 Gmail 주소 |
 | `GMAIL_APP_PASSWORD` | Gmail 앱 비밀번호 |
