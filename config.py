@@ -8,15 +8,11 @@ def _parse_list(env_key: str, default: list[str]) -> list[str]:
         return [k.strip() for k in raw.split(',') if k.strip()]
     return default
 
-# ── 검색 키워드 (.env의 KEYWORDS 또는 기본값) ─────────────────
-KEYWORDS = _parse_list('KEYWORDS', [
-    'Python', '개발자', '백엔드', '프론트엔드', '풀스택',
-])
+# ── 검색 키워드 (.env의 KEYWORDS 에서 읽음) ───────────────────
+KEYWORDS = _parse_list('KEYWORDS', [])
 
-# ── 제외 키워드 (.env의 EXCLUDE_KEYWORDS 또는 기본값) ─────────
-EXCLUDE_KEYWORDS = _parse_list('EXCLUDE_KEYWORDS', [
-    '경력 10년', '시니어', '팀장', '수석',
-])
+# ── 제외 키워드 (.env의 EXCLUDE_KEYWORDS 에서 읽음) ───────────
+EXCLUDE_KEYWORDS = _parse_list('EXCLUDE_KEYWORDS', [])
 
 # ── 지역 ──────────────────────────────────────────────────────
 LOCATION_LABEL = os.getenv('LOCATION_LABEL', '전국')

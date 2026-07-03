@@ -7,6 +7,13 @@ from scrapers import saramin, wanted, jumpit, jobkorea
 from core import filter, mailer
 
 def run(test_mode: bool = False):
+    from config import KEYWORDS
+    if not KEYWORDS:
+        print("❌ KEYWORDS가 설정되지 않았습니다.")
+        print("   .env 파일에 아래 형식으로 추가해주세요:")
+        print("   KEYWORDS=Python,백엔드,Django")
+        return
+
     print("🔍 구직 공고 수집 시작...")
 
     all_jobs = []
